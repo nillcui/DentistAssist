@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "CalendarManager.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -37,6 +38,8 @@
     [self.view addSubview:self.tableView];
     [self.view bringSubviewToFront:self.tableView];
     [self.tableView reloadData];
+    
+    NSLog(@"isAuthSuccess=%d,isDenied=%d",[[CalendarManager sharedInstance] isAuthSuccess],[[CalendarManager sharedInstance] isAuthDenied]);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +57,7 @@
 
 - (void)selectRightAction:(id)sender {
     NSLog(@"right clicked");
+    [[CalendarManager sharedInstance] addEvent:@"this is title" notes:@"do sth now" startTime:[[NSDate alloc] init] ];
 }
 
 #pragma mark UITableViewDataSource

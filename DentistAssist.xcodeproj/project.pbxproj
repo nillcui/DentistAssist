@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF4714431B0CDABB0098AA2F /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4714421B0CDABB0098AA2F /* CalendarManager.m */; };
 		AF5D70451B0A303E00D084A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF5D70441B0A303E00D084A0 /* main.m */; };
 		AF5D70481B0A303E00D084A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF5D70471B0A303E00D084A0 /* AppDelegate.m */; };
 		AF5D70501B0A303E00D084A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5D704F1B0A303E00D084A0 /* Images.xcassets */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF4714411B0CDABB0098AA2F /* CalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarManager.h; sourceTree = "<group>"; };
+		AF4714421B0CDABB0098AA2F /* CalendarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarManager.m; sourceTree = "<group>"; };
 		AF5D703F1B0A303E00D084A0 /* DentistAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DentistAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5D70431B0A303E00D084A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF5D70441B0A303E00D084A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +77,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF47143F1B0CDA990098AA2F /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				AF4714401B0CDA990098AA2F /* Calendar */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		AF4714401B0CDA990098AA2F /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				AF4714411B0CDABB0098AA2F /* CalendarManager.h */,
+				AF4714421B0CDABB0098AA2F /* CalendarManager.m */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		AF5D70361B0A303E00D084A0 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +115,7 @@
 		AF5D70411B0A303E00D084A0 /* DentistAssist */ = {
 			isa = PBXGroup;
 			children = (
+				AF47143F1B0CDA990098AA2F /* Logic */,
 				AF5D707B1B0A38FB00D084A0 /* UI */,
 				AF5D706A1B0A35DC00D084A0 /* Images */,
 				AF5D70461B0A303E00D084A0 /* AppDelegate.h */,
@@ -264,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF5D70481B0A303E00D084A0 /* AppDelegate.m in Sources */,
+				AF4714431B0CDABB0098AA2F /* CalendarManager.m in Sources */,
 				AF5D70451B0A303E00D084A0 /* main.m in Sources */,
 				AF5D707E1B0A394000D084A0 /* HomeViewController.m in Sources */,
 			);
@@ -456,6 +478,7 @@
 				AF5D70641B0A303E00D084A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF5D70651B0A303E00D084A0 /* Build configuration list for PBXNativeTarget "DentistAssistTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +487,7 @@
 				AF5D70671B0A303E00D084A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
