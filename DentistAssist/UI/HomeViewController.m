@@ -1,18 +1,21 @@
 //
 //  HomeViewController.m
-//  DentistAssist
+//  TestTable
 //
-//  Created by NillCui on 15/5/18.
-//  Copyright (c) 2015年 NillCui. All rights reserved.
+//  Created by nillcui on 15/5/19.
+//  Copyright (c) 2015年 nillcui. All rights reserved.
 //
 
 #import "HomeViewController.h"
 
-@interface HomeViewController ()
+@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
 @implementation HomeViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +28,15 @@
     //右按钮
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd  target:self action:@selector(selectRightAction:)];
     self.navigationItem.rightBarButtonItem = rightButton;
+    
+    //TableView
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.view.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:self.tableView];
+    [self.view bringSubviewToFront:self.tableView];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,7 +53,44 @@
 }
 
 - (void)selectRightAction:(id)sender {
-    NSLog(@"right clicked");    
+    NSLog(@"right clicked");
 }
 
+#pragma mark UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"demo_tableview_cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (nil == cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:cellIdentifier];
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld - %ld", indexPath.section, indexPath.row];
+    return cell;
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+#pragma mark UITableViewDelegate
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40.f;
+}
 @end
